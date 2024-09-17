@@ -1,0 +1,44 @@
+image: gradle:8.5.0-jdk17-alpine
+stages:
+    - build
+    - test
+variables:
+    GIT_SSL_NO_VERIFY: "true"
+before_script:
+    - echo "Starting Automated Build..."
+    - export GRADLE_USER_HOME=`pwd`/.gradle
+    - chmod +x ./gradlew
+cache: 
+  paths:
+    - .gradle/wrapper
+    - .gradle/caches 
+build: 
+  stage: build 
+  script:
+    - ./gradlew assemble 
+  tags:
+    - docker-runner
+  artifacts: 
+    paths:
+      - build/libs/*.jar 
+    expire_in: 1 week
+test_black_box: 
+  stage: test
+  tags:
+    - docker-runner
+  script:
+    - ./gradlew test
+  artifacts: 
+    paths:
+      - build/test-results/test/TEST-*.xml 
+test_white_box: 
+  stage: test
+  tags:
+    - docker-runner
+  script:
+    - ./gradlew jacocoTestReport
+  artifacts: 
+    paths:
+      - build/reports/jacoco* 
+after_script:
+  - echo "End of The Automated Build"

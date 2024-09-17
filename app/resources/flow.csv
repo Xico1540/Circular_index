@@ -1,0 +1,13 @@
+Granulated plastic,Materials/Plastic,Product Flow,Mass,kg,1,1=1,TRUE
+polyethylene phthalate (PET) granulate,Materials/Plastic,Product Flow,Mass,kg,1,1=1,TRUE
+adhesive PUR,Materials/Plastic,Product Flow,Mass,kg,1,1=1,TRUE
+Low-density polyethylene (LD-PE),Materials/Plastic,Product Flow,Mass,kg,1,1=1,TRUE
+transport t?km,Transport Services (Mass*Distance),Product Flow,t*km,t?km,1,1=1,TRUE
+transport cargo,Transport Services (cargo),Product Flow,Mass,kg,1,1=1,TRUE
+water from company - EU,Treated Water,Product Flow,Mass,kg,1,1=1,TRUE
+Plastic Components,Materials/Plastic,Product Flow,Number of items,Items,1,1=1,TRUE
+bottles with water,Water Bottle,Product Flow,Number of items,Items,1,1,TRUE
+bottles for sale,Water Bottle,Product Flow,Number of items,Items,1,1,TRUE
+Extrusion,Extrusion/Co-Extrusion,Product Flow,Energy,Mj,1,1,TRUE
+Waste Incineration,End-Of-Life,Waste Flow,Mass,kg,1,1,TRUE
+Plastic Packaging,Materials/Plastic,Product Flow,Number of items,Items,1,1,TRUE

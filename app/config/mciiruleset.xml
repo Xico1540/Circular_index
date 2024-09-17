@@ -1,0 +1,89 @@
+<ruleset name="mciiruleset"
+    xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 https://pmd.sourceforge.io/ruleset_2_0_0.xsd">
+    <description>This ruleset is responsible for the calculation of cyclomatic complexity and other related metrics.</description>
+    <rule ref="category/java/errorprone.xml" />
+    <rule ref="category/java/bestpractices.xml" />
+    <rule ref="category/java/design.xml" />
+
+    <rule ref="category/java/design.xml/CyclomaticComplexity" name="CyclomaticComplexityCheck"
+        message="Cyclomatic complexity should be less than 10"
+        class="net.sourceforge.pmd.lang.rule.XPathRule">
+        <description>Checks that cyclomatic complexity is less than 10</description>
+        <priority>3</priority>
+        <properties>
+            <property name="classReportLevel" value="10" />
+        </properties>
+        <example>
+            <![CDATA[ 
+            public class ExampleClass {
+                private void foo() {
+                    // high complexity code.
+                }
+            }
+            ]]>
+        </example>
+    </rule>
+    <rule ref="category/java/design.xml/CognitiveComplexity" name="CognitiveComplexityCheck"
+        message="Cognitive complexity should be less than or equal to the number of method"
+        class="net.sourceforge.pmd.lang.rule.XPathRule">
+        <description>Checks that Cognitive Complexity is greater than or equal to 0.</description>
+        <priority>3</priority>
+        <properties>
+            <property name="reportLevel" value="10" />
+        </properties>
+        <example>
+            <![CDATA[ 
+            public class ExampleClass {
+                private void foo1() {
+                    // code
+                }
+                private void foo2() {
+                    // code
+                }
+                private void foo3() {
+                    // code
+                }
+            }
+            ]]>
+        </example>
+    </rule> 
+    <rule ref="category/java/design.xml/ExcessiveImports" name="ExcessiveImportsCheck" message="Excessive Imports should be less than 30"
+    class="net.sourceforge.pmd.lang.rule.XPathRule">
+        <description>Checks class coupling is less than 20.</description>
+        <priority>3</priority>
+        <properties>
+            <property name="minimum" value="30" />
+        </properties>
+        <example>
+            <![CDATA[ 
+                import foo.Foo.FooClass;
+                (...)
+                import foo.Goo.GooClass;
+                (...)
+                
+            ]]>
+        </example>
+    </rule> 
+    <rule ref="category/java/design.xml/CouplingBetweenObjects" name="CouplingBetweenObjectsCheck"
+        message="Coupling between objects should be less than 20"
+        class="net.sourceforge.pmd.lang.rule.XPathRule">
+        <description>Checks that Coupling Between Objects is less than 20.</description>
+        <priority>3</priority>
+        <properties>
+            <property name="threshold" value="20" />
+        </properties>
+        <example>
+            <![CDATA[ 
+            public class FooFoo {
+                //code
+                private class FooGoo {
+                    // code
+                }
+                //code
+            }
+            ]]>
+        </example>
+        </rule>
+</ruleset>
